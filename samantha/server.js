@@ -2,6 +2,7 @@ var http = require('http');
 var fs = require('fs');
 
 var nd;
+
 var server = http.createServer((req, res) => {
 
   if (req.method === 'GET' && req.url === '/') {
@@ -10,12 +11,20 @@ var server = http.createServer((req, res) => {
     return res.end();
   }
 
+  if (req.method === 'GET' && req.url === '/notes') {
+    res.writeHead(200, {'content-type': 'text/plain'})
+    var files = fs.readdirSync(__dirname + '/notesData')
+      // console.log('filesconsole: ' + files)
+      res.write(files.toString())
+    return res.end();
+  }
+
   if(req.method === 'POST' && req.url === '/notes') {
     res.writeHead(200, {'Content-Type': 'application/json'});
     req.on('data', (data) => {
       res.write(data);
       fs.readdir(__dirname + '/notesData', (err, files) => {
-        console.log('files' + files)
+        // console.log('files' + files)
         files.sort();
         nd = files.length
         fs.writeFile(__dirname + '/notesData/notes' + nd + '.json', data)
