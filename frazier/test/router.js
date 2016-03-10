@@ -1,5 +1,5 @@
 'use strict';
-var fs = require('fs');
+// var fs = require('fs');
 var chai = require('chai');
 var expect = chai.expect;
 var Router = require(__dirname + '/../lib/router.js');

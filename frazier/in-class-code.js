@@ -8,9 +8,9 @@ studentsRouter.get('/students', (req, res) => {
   console.log('/students route hit');
   // Would actually do a students database lookup
   res.end();
-})
+});
 
-http.createServer(studentsRouter.route()).listen(3000)
+http.createServer(studentsRouter.route()).listen(3000);
 
 
 
@@ -24,7 +24,7 @@ var Router = module.exports = function() {
 
 Router.prototype.get = function(route, cb) {
   this.routes['GET'][route] = cb;
-}
+};
 
 Router.prototype.route = function() {
   return (req, res) => {
