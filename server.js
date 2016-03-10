@@ -1,7 +1,7 @@
 'use strict';
 
 var http = require('http');
-var router = require('../router/router');
-var routes = require('../routes/route-handle.js');
+var router = require(__dirname + '/router/router');
+var routes = require(__dirname + '/routes/route-handle.js');
 
-http.createServer(productsRouter.route()).listen(3000)
+// http.createServer(productsRouter.route()).listen(3000)

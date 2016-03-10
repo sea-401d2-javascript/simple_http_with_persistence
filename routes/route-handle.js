@@ -9,13 +9,16 @@ var productsRouter = new Router();
 productsRouter.get('/products', (req, res) => {
   console.log('/products route hit with GET request');
   res.end();
-}
+});
 
 productsRouter.post('/products', (req, res) => {
   req.on('data', (data) => {
     console.log('/products route hit with POST request');
     fileCounter += 1;
-    fs.writeFile('../data/json-received' + fileCounter, )
+    console.log(fileCounter + 'files sent');
+    fs.writeFile(__dirname + '/../data/json-received' + fileCounter + '.json', data, (error) => {
+      console.log('data was written and' + data);
+    } )
   })
   res.end();
 })
@@ -23,3 +26,5 @@ productsRouter.post('/products', (req, res) => {
 productsRouter.get('/products/:id', (req, res) => {
   console.log('products route hit with specific id');
 })
+
+http.createServer(productsRouter.route()).listen(3000)
