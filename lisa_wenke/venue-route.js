@@ -7,11 +7,11 @@ var venuesRouter = new Router();
 var fileNum = 0;
 
 
-venuesRouter.post('/venues',(req, res) => {
+venuesRouter.post('/venues/',(req, res) => {
+  console.log('/venues server was hit');
   req.on('data',(data) => {
-    console.log('/venues server was hit');
     fileNum += 1;
-    fs.writeFile(__dirname + '/data/' + fileNum + '.json', data, (err) => {
+    fs.writeFile(__dirname + '/data/venue_' + fileNum + '.json', data, (err) => {
       console.log('data: ' + data);
       if (err) throw err;
     });
@@ -19,7 +19,7 @@ venuesRouter.post('/venues',(req, res) => {
   res.end();
 });
 
-venuesRouter.get('/venues', (req, res) => {
+venuesRouter.get('/venues/', (req, res) => {
   console.log('venue request received');
   res.end();
 });
