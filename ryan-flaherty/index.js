@@ -1,29 +1,33 @@
 'use strict';
 
 var http = require('http');
-var Router = require(__dirname + './routes/router');
-var fooRouter = new Router();
+var fs = require('fs');
+var userData = __dirname + '/data/userData.json';
+var users = require(userData);
 
 var server = http.createServer((req, res, err) => {
-  if (req.method === 'GET' && req.url === '/time') {
-    var getTime = new Date;
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('<h1>' + getTime + '</h1>');
-    return res.end();
-  }
-  if (req.method === 'GET' && req.url.slice(0, 6) === '/greet') {
-    var greetName = req.url.slice(7);
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('<h1> Greetings ' + greetName + '!</h1>');
-    return res.end();
-  }
-  if (req.method === 'POST' && req.url === '/post') {
+
+  if (req.method === 'POST' && req.url === '/users') {
     req.on('data', (data) => {
       var body = JSON.parse(data);
       console.log(body);
+      var userCount = Object.keys(users).length;
+      var newUserId = 'user' + (userCount += 1);
+      users[newUserId] = body;
+      fs.writeFile(userData, JSON.stringify(users, null, 2), function (err) {
+        if (err) return console.log(err);
+        console.log(JSON.stringify(users, null, 2));
+        console.log('writing to ' + userData);
+      });
     });
-    res.writeHead(200, 'Content-Type: text/html');
-    res.write('Post Received');
+    res.write('User saved');
+    return res.end();
+  }
+  if (req.method === 'GET' && req.url.slice(0, 6) === '/users') {
+    var userQuery = req.url.slice(7);
+    console.log(users[userQuery]);
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(users[userQuery].name);
     return res.end();
   }
   res.writeHead(404, {'Content-Type': 'text/html'});
