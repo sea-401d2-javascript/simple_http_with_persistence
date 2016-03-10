@@ -21,6 +21,13 @@ venuesRouter.post('/venues/',(req, res) => {
 
 venuesRouter.get('/venues/', (req, res) => {
   console.log('venue request received');
+  req.on('data', (data) => {
+    var vData = fs.readFile(__dirname + '/data/*.json', data, (err) => {
+      console.log('data: ' + data);
+      if (err) throw err;
+      res.write(vData);
+    });
+  });
   res.end();
 });
 
