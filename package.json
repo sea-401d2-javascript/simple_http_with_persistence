@@ -19,6 +19,7 @@
   "homepage": "https://github.com/alexwuwei/simple_http_with_persistence#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
     "mocha": "^2.4.5"
   }
 }

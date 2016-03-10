@@ -7,7 +7,7 @@ var fileCounter = 0;
 var productsRouter = new Router();
 
 productsRouter.get('/products', (req, res) => {
-  console.log('/products route hit with GET request');
+  console.log('/products route hit with GET request. By the way, there have been ' + fileCounter + ' data files posted so far.');
   res.end();
 });
 
@@ -24,7 +24,7 @@ productsRouter.post('/products', (req, res) => {
 })
 
 productsRouter.get('/products/:id', (req, res) => {
-  console.log('products route hit with specific id');
+  console.log('products route hit with specific id. By the way, there have been ' + fileCounter + ' data files posted so far.');
 })
 
 http.createServer(productsRouter.route()).listen(3000)
