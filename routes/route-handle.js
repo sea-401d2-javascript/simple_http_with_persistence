@@ -8,7 +8,27 @@ var productsRouter = new Router();
 
 productsRouter.get('/products', (req, res) => {
   console.log('/products route hit with GET request. By the way, there have been ' + fileCounter + ' data files posted so far.');
-  res.end();
+  var allFiles = [];
+    fs.readdir(__dirname + '/../data', function(err,files) {
+      console.log(files, 'in readdir');
+      files.forEach(function(file, i){
+        fs.readFile(__dirname + '/../data/' + file, (err, data) => {
+          if (i === files.length - 1) {
+            res.write(data);
+            res.end();
+          } else {
+            res.write(data);
+            // res.end();
+          }
+        });
+      });
+    });
+  //   console.log(allFiles);
+  //   allFiles.forEach((file) => {
+  //     res.write(file);
+  //     console.log(file);
+  //   })
+  // res.end();
 });
 
 productsRouter.post('/products', (req, res) => {
