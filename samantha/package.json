@@ -1,6 +1,6 @@
 {
   "name": "http_with_persistence",
-  "version": "0.1.9",
+  "version": "0.1.0",
   "description": "http server with simple persistence",
   "main": "index.js",
   "directories": {
