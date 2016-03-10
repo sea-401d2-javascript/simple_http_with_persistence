@@ -3,25 +3,34 @@
 var Router = require(__dirname + '/../lib/router.js');
 var dogs = new Router();
 var fs = require('fs');
+var isEmpty;
 
 dogs.get('/dogs', (req, res) => {
-  console.log('/get was hit');
+  fs.readdir(__dirname + '/../data', (err, files) => {
+    if (err) {throw err}
+    isEmpty = files;
+    //a check, to see if data directory is empty
+    if(isEmpty == 0) {
+      res.writeHead(404, {'content-type': 'text/html'})
+      res.write('Error 404, no dogs files found.')
+      res.end();
+    }
 
-  fs.readFile(__dirname + '/../data/shitsu.js', (err, data) => {
-    if (err){throw err}
-    res.write(JSON.parse(data));
+    if(isEmpty !== 0 && isEmpty !== null) {
+      res.writeHead(200, {'content-type': 'application/json'});
+      isEmpty.forEach(function(data) {
+        res.write(data + '; ');
+      })
+      res.end();
+    }
   })
-  res.end();
 })
 
 dogs.post('/dogs', (req, res) => {
-  console.log('/post was hit');
   res.writeHead(200, {'content-type': 'application/json'});
   req.on('data', (data) => {
     var newDog = JSON.parse(data);
-    console.log(newDog.name);
-
-    fs.writeFile(__dirname + '/../data/' + newDog.name + '.js', 'hello ' + newDog.name + ' would you like a bone?', (err) => {
+    fs.writeFile(__dirname + '/../data/' + newDog.name + '.json', JSON.stringify('hello ' + newDog.name + ', would you like a bone?'), (err) => {
       if (err) {throw err}
     });
     res.end();
