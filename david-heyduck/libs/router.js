@@ -21,7 +21,7 @@ Router.prototype.post = function(route, cb) {
 };
 
 Router.prototype.route = function() {
-  return function(req, res) {
+  return (req, res) => {
     var routeFunction = this.routes[req.method][req.url];
     routeFunction(req, res);
   };
