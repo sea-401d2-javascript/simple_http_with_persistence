@@ -19,6 +19,22 @@ describe('Test HTTP server with persistence',() => {
       })
   })
 
+  it('should respond to get request on /notes', (done) => {
+    request('localhost:3000')
+      .get('/notes')
+      .end((err, res) => {
+        debugger;
+        expect(err).to.eql(null);
+        // console.log(res.text)
+        // console.log(res.body)
+        expect(res).to.have.status(200);
+        expect(res.text).to.exist;
+        expect(res.text).to.be.a('string');
+        done();
+
+      })
+  })
+
   it('should write a json object to a file with a unique name', (done) => {
     request('localhost:3000')
       .post('/notes')
