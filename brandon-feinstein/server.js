@@ -29,7 +29,8 @@ var server = http.createServer((req, res) => {
       fs.writeFile(file, content, (err) => {
         if (err) throw err;
         res.writeHead(200, {'Content-Type': 'text/plain'});
-        res.write('Mic check added to ' + file);
+        res.write(content);
+        // res.write('Mic check added to ' + file);
         // console.log(docNum);
         return res.end();
       });
