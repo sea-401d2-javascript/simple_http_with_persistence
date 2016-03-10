@@ -1,8 +1,8 @@
 {
-  "name": "basic_http_server",
+  "name": "simple_http_with_persistence",
   "version": "0.0.1",
-  "description": "Code 401 - Basic HTTP Server",
-  "main": "server.js",
+  "description": "Code 401 - Simple HTTP Server with Persistence",
+  "main": "lib/server.js",
   "directories": {
     "test": "test"
   },
@@ -26,7 +26,5 @@
     "gulp-eslint": "^2.0.0",
     "gulp-mocha": "^2.2.0"
   },
-  "dependencies": {
-    "querystring": "^0.2.0"
-  }
+  "dependencies": {}
 }
