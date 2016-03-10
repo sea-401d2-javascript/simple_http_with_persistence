@@ -1,0 +1,33 @@
+{
+  "name": "mikleane",
+  "version": "0.1.0",
+  "description": "Simple HTTP Server with Persistence",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikleane/simple_http_with_persistence.git"
+  },
+  "keywords": [
+    "http",
+    "server",
+    "persistent",
+    "connection"
+  ],
+  "author": "Mikleane Chouinard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikleane/simple_http_with_persistence/issues"
+  },
+  "homepage": "https://github.com/mikleane/simple_http_with_persistence#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-mocha": "^2.2.0",
+    "mocha": "^2.4.5"
+  }
+}
