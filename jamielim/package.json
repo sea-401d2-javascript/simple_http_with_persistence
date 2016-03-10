@@ -1,0 +1,35 @@
+{
+  "name": "simple_http_with_persistence",
+  "version": "0.1.0",
+  "description": "http server",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "gulp lint",
+    "start": "node routes/productsRoutes.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jalynnlim/simple_http_with_persistence.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jalynnlim/simple_http_with_persistence/issues"
+  },
+  "homepage": "https://github.com/jalynnlim/simple_http_with_persistence#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.0",
+    "gulp-mocha": "^2.2.0",
+    "jshint": "^2.9.1",
+    "jshint-stylish": "^2.1.0"
+  },
+  "dependencies": {
+    "uuid": "^2.0.1"
+  }
+}
