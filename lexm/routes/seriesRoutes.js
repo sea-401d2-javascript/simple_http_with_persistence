@@ -11,10 +11,11 @@ seriesRouter.post('/series/', (req, res) => {
   console.log('/series POST hit');
   req.on('data', (data) => {
     var padId = ('000000'+ nextId).substr(-6, 6);
-    console.log(padId);
+    var newFilename = __dirname + '/../data/' + padId + 'series.json';
+    fs.writeFile(newFilename, data.toString(), () => {
+      console.log(newFilename + ' finished writing');
+    });
     nextId++;
-    fs.writeFile(__dirname + '/../data/' + padId + 'series.json', data.toString());
-    console.log(__dirname + '/../data/' + padId + 'series.json');
   });
   res.end();
 });
@@ -22,9 +23,32 @@ seriesRouter.post('/series/', (req, res) => {
 
 seriesRouter.get('/series/', (req, res) => {
   console.log('/series GET hit');
+  var item = '';
+  console.log();
+  fs.readdir('../data', (err, files) => {
+    if(err) {
+      console.log(err);
+    } else {
+      res.writeHead(200, {'Content-Type': 'text/html'});
+      res.write('This is some text.\n');
+      for(var ctr = 0; ctr < files.length; ctr++) {
+        res.write(files[ctr] + '\n');
+      }
+      // files.forEach( (cur) => {
+      //   item = fs.readFile('../data/' + cur, (err, data) => {
+      //     if(err) {
+      //       console.log(err);
+      //     } else {
+      //       console.log(data.toString());
+      //       res.write(data.toString());
+      //     }
+      //   });
+      // });
+      res.end();
+    }
+  });
   debugger;
   console.log(req.url);
-  res.end();
 });
 
 http.createServer(seriesRouter.route()).listen(3000, () => {
