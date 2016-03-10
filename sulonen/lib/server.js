@@ -17,7 +17,6 @@ var server = module.exports = http.createServer((req, res) => {
       body += chunk;
     });
     req.on('end', () => {
-      console.log(body);
       var dateString = new Date().getTime();
       fs.writeFile(__dirname + '/../data/' + dateString
         + '.json', body, (err) => {
