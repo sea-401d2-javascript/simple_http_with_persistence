@@ -24,7 +24,7 @@ studentsRouter.post('/users', (req, res) => {
     logger(jsonObject);
     jsonObject = JSON.parse(jsonObject);
     res.writeHead(200, {'content-type': 'text/plain'});
-    res.write(JSON.stringify('hello ' + 'boogers'));
+    res.write(JSON.stringify('hello ' + jsonObject.name));
     return res.end();
   });
 });
