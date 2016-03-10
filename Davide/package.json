@@ -1,0 +1,22 @@
+{
+  "name": "basic_http_server_with_simple_resistance",
+  "version": "1.0.0",
+  "description": "##To Submit this Assignment   * fork this repository   * write all of your code in a folder containing your name   * push to your repository   * submit a pull request to this repository   * submit a link to your PR in canvas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FazioD/simple_http_with_persistence.git"
+  },
+  "author": "Davide Fazio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FazioD/simple_http_with_persistence/issues"
+  },
+  "homepage": "https://github.com/FazioD/simple_http_with_persistence#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
