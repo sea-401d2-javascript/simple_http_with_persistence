@@ -5,7 +5,7 @@ var fs = require('fs');
 var userData = __dirname + '/data/userData.json';
 var users = require(userData);
 
-var server = http.createServer((req, res, err) => {
+http.createServer((req, res) => {
 
   if (req.method === 'POST' && req.url === '/users') {
     req.on('data', (data) => {
