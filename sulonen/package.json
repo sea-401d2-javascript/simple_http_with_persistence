@@ -1,0 +1,32 @@
+{
+  "name": "basic_http_server",
+  "version": "0.0.1",
+  "description": "Code 401 - Basic HTTP Server",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sulonen/basic_http_server.git"
+  },
+  "author": "sulonen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sulonen/basic_http_server/issues"
+  },
+  "homepage": "https://github.com/sulonen/basic_http_server/readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "gulp-cli": "^1.2.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-mocha": "^2.2.0"
+  },
+  "dependencies": {
+    "querystring": "^0.2.0"
+  }
+}
