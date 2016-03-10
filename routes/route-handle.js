@@ -18,17 +18,10 @@ productsRouter.get('/products', (req, res) => {
             res.end();
           } else {
             res.write(data);
-            // res.end();
           }
         });
       });
     });
-  //   console.log(allFiles);
-  //   allFiles.forEach((file) => {
-  //     res.write(file);
-  //     console.log(file);
-  //   })
-  // res.end();
 });
 
 productsRouter.post('/products', (req, res) => {
