@@ -12,14 +12,14 @@ const expect = chai.expect;
 require('./../lib/server').server;
 
 describe('HTTP Server Tests', () => {
-  it('should respond with a silly greeting at GET /', (done) => {
+  it('should respond with a fiile list at GET /', (done) => {
     request('localhost:3000')
     .get('/')
     .end((err, res) => {
       if (err) throw err;
       expect(err).to.equal(null);
       expect(res).to.have.status(200);
-      expect(res.text.endsWith('</h1>\n')).to.equal(true);
+      expect(res.text.endsWith('</ul>\n')).to.equal(true);
       done();
     });
   });
@@ -37,7 +37,6 @@ describe('HTTP Server Tests', () => {
         files.sort();
         latestFile = files[files.length - 1].slice(0, 13);
         latestFile = parseInt(latestFile);
-        console.log(latestFile);
       });
       expect(err).to.equal(null);
       expect(res).to.have.status(200);

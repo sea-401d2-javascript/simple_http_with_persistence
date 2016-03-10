@@ -3,12 +3,36 @@
 const http = require('http');
 const fs = require('fs');
 
+// function getList() {
+//   fs.readdir(__dirname + '/../data/', (err, files) => {
+//     if (err) throw err;
+//     var fileList = '<h2>Files in /data</h2><ul>';
+//     files.forEach((file) => {
+//       fileList += '<li>' + file + '<li>';
+//     });
+//     fileList += '</ul>';
+//     return fileList;
+//   });
+// }
+
+
+
 var server = module.exports = http.createServer((req, res) => {
+
   //root
   if(req.method === 'GET' && req.url === '/') {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('<h1>All your base are belong to us...</h1>\n');
-    return res.end();
+    fs.readdir(__dirname + '/../data/', (err, files) => {
+      if (err) throw err;
+      var fileList = '<h2>Files in /data</h2><ul>';
+      files.forEach((file) => {
+        fileList += '<li>' + file + '</li>';
+      });
+      fileList += '</ul>';
+      res.writeHead(200, {'Content-Type': 'text/html'});
+      res.write(fileList + '\n');
+      return res.end();
+    });
+    return;
   }
 
   if(req.method === 'POST') {
