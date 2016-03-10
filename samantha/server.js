@@ -13,7 +13,7 @@ var server = http.createServer((req, res) => {
   if(req.method === 'POST' && req.url === '/notes') {
     res.writeHead(200, {'Content-Type': 'application/json'});
     req.on('data', (data) => {
-      res.write(JSON.stringify(data));
+      res.write(data);
       fs.readdir(__dirname + '/notesData', (err, files) => {
         console.log('files' + files)
         files.sort();

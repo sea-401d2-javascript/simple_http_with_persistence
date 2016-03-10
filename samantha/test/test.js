@@ -25,11 +25,7 @@ describe('Test HTTP server with persistence',() => {
       .send({'notes': 'testing'})
       .end((err, res) => {
         expect(err).to.eql(null)
-        var buffer = res.text
-        JSON.stringify(buffer)
-        console.log('buffer' + buffer)
-        // console.log('res.text:' + res.text.toString())
-        expect(res.text).to.eql(buffer);
+        expect(res.body).to.eql({"notes":"testing"});
         done();
       })
   })
