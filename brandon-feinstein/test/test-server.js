@@ -43,6 +43,7 @@ describe('HTTP server with persistance tests', () => {
         done();
       })
   })
+
   it('GET request should respond to /notes with list of files in test-docs directory', (done) => {
     request('localhost:3000')
     .get('/notes')
@@ -59,7 +60,7 @@ describe('HTTP server with persistance tests', () => {
   });
 
   it('should write correct data to doc file', () => {
-      expect(fileContent).to.eql(resText);
+      expect(fileContent).to.eql('{"name":"Brandon"}');
   });
 
 })
