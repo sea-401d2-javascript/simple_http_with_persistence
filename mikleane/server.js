@@ -4,11 +4,17 @@ var fs = require('fs');
 var http = require('http');
 var lastFile;
 
-
 var server = http.createServer((req, res) => {
   if(req.method === 'GET' && req.url === '/'){
-    res.writeHead(200, {'content-type': 'application/json'})
+    res.writeHead(200, {'content-type': 'application/json'});
     res.write(JSON.stringify({message: 'hello!'}));
+    return res.end();
+  };
+
+  if(req.method === 'GET' && req.url === '/notes'){
+    res.writeHead(200, {'content-type':'text/plain' });
+    var dataFiles = fs.readdirSync(__dirname + '/data')
+    res.write(dataFiles.toString());
     return res.end();
   };
 
