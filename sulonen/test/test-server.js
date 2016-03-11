@@ -9,7 +9,7 @@ chai.use(chai_http);
 const request = chai.request;
 const expect = chai.expect;
 
-require('./../lib/server').server;
+require('./../server').server;
 
 describe('HTTP Server Tests', () => {
   it('should respond with a fiile list at GET /', (done) => {

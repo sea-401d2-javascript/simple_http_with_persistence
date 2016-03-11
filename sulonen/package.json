@@ -2,7 +2,7 @@
   "name": "simple_http_with_persistence",
   "version": "0.0.1",
   "description": "Code 401 - Simple HTTP Server with Persistence",
-  "main": "lib/server.js",
+  "main": "server.js",
   "directories": {
     "test": "test"
   },
