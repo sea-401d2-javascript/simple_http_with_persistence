@@ -34,11 +34,7 @@ Router.prototype.addPOSTRoute = function(route, callback){
 Router.prototype.routeRequests = function(){
   return (request, response) => {
     var parsedUrl = Router.formatUrlForRouter(request, response);
-    console.log('request.url is');
-    console.log(request.url);
     var routeFunction = this.routes[request.method][request.url];
-    console.log('routeFunction is');
-    console.log(routeFunction);
     if (routeFunction instanceof Function){
       routeFunction(request, response, parsedUrl);
     } else {
