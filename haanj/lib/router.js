@@ -20,4 +20,4 @@ Router.prototype.route = function() {
     var routeFunction = this.routes[req.method][req.url];
     routeFunction(req, res);
   };
-};
+};  
