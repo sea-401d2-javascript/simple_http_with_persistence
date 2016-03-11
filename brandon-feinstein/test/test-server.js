@@ -24,14 +24,14 @@ describe('HTTP server with persistance tests', () => {
       if (err) throw err;
       // var resDat = data
       fileContent = data.toString();
-    })
+    });
     fs.readdir(__dirname + '/test-docs', (err, files) => {
       if (err) throw err;
-        fileString = files.toString();
+      fileString = files.toString();
         // return res.end();
-    })
+    });
     done();
-  })
+  });
 
   it('GET request should respond to / with hello', (done) => {
     request('localhost:3000')
@@ -41,8 +41,8 @@ describe('HTTP server with persistance tests', () => {
         expect(res).to.have.status(200);
         expect(res.text).to.eql('Hello!');
         done();
-      })
-  })
+      });
+  });
 
   it('GET request should respond to /notes with list of files in test-docs directory', (done) => {
     request('localhost:3000')
@@ -55,12 +55,12 @@ describe('HTTP server with persistance tests', () => {
   });
 
   it('should return "name":"Brandon" with POST request', () => {
-      expect(errCheck).to.eql(null);
-      expect(resText).to.eql('{"name":"Brandon"}');
+    expect(errCheck).to.eql(null);
+    expect(resText).to.eql('{"name":"Brandon"}');
   });
 
   it('should write correct data to doc file', () => {
-      expect(fileContent).to.eql('{"name":"Brandon"}');
+    expect(fileContent).to.eql('{"name":"Brandon"}');
   });
 
-})
+});
