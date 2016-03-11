@@ -3,9 +3,16 @@ var http = require('http');
 var fs = require('fs');
 var Router = require('./router.js');
 var ArticlesRouter = new Router();
-var count = 0;
-// var filesArray;
 
+//**********************************************************
+//counting how many files are in directory to start with
+//so post function can use that number to create a new file.
+//**********************************************************
+var count = fs.readdirSync( __dirname + '/data').length;
+console.log(count);
+
+
+//get function
 ArticlesRouter.get('/mynotes', (req, res) => {
   fs.readdir( __dirname + '/data',(err, files) => {
     var filesArray = files;
@@ -17,6 +24,7 @@ ArticlesRouter.get('/mynotes', (req, res) => {
   });
 });
 
+//post function
 ArticlesRouter.post('/mynotes', (req, res)=>{
   req.on('data', (data)=>{
     var stringData = JSON.parse(data);
@@ -33,6 +41,7 @@ ArticlesRouter.post('/mynotes', (req, res)=>{
   });
 });
 
-http.createServer(ArticlesRouter.route()).listen(3000, () => {
+//creating http server
+module.exports = http.createServer(ArticlesRouter.route()).listen(3000, () => {
   console.log('Port 3000 is listening..');
 });
