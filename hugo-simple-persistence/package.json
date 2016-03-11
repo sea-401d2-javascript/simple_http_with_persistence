@@ -1,0 +1,25 @@
+{
+  "name": "simple_http_with_persistence",
+  "version": "1.0.0",
+  "description": "basic http server with persistence, following proper REST and CRUD principles",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexwuwei/simple_http_with_persistence.git"
+  },
+  "author": "hugo a guerra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexwuwei/simple_http_with_persistence/issues"
+  },
+  "homepage": "https://github.com/alexwuwei/simple_http_with_persistence#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.4.5"
+  }
+}
