@@ -1,0 +1,27 @@
+{
+  "name": "http-server-persistence",
+  "version": "0.0.1",
+  "description": "Make a POST request sending along a JSON object and then storing it to a file.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alemneh/HTTP-Server-With-Simple-Persistence.git"
+  },
+  "author": "alumneh asefa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alemneh/HTTP-Server-With-Simple-Persistence/issues"
+  },
+  "homepage": "https://github.com/alemneh/HTTP-Server-With-Simple-Persistence#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-mocha": "^2.2.0"
+  }
+}
