@@ -1,0 +1,35 @@
+{
+  "name": "david-heyduck",
+  "version": "1.0.0",
+  "description": "Basic HTTP Server with Simple Persistence",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heyduckd/simple_http_with_persistence.git"
+  },
+  "keywords": [
+    "HTTP",
+    "Server",
+    "Persistence"
+  ],
+  "author": "David Heyduck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heyduckd/simple_http_with_persistence/issues"
+  },
+  "homepage": "https://github.com/heyduckd/simple_http_with_persistence#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "mocha": "^2.4.5"
+  }
+}
