@@ -1,0 +1,30 @@
+{
+  "name": "sawako-http-persistence",
+  "version": "1.0.0",
+  "description": "Creating http server and storing data",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishidas/simple_http_with_persistence.git"
+  },
+  "author": "sawako.yoriko@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ishidas/simple_http_with_persistence/issues"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "eslint": "^2.3.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-mocha": "^2.2.0",
+    "mocha": "^2.4.5"
+  }
+}
