@@ -1,14 +1,16 @@
 'use strict';
 var http = require('http');
-var logger = require('../lib/logger');
 var Router = require('../lib/router');
+var fs = require('fs');
 var studentsRouter = new Router();
 
 studentsRouter.get('/users', (req, res) => {
   console.log('/users route hit with GET request');
-  res.writeHead(200, {'content-type': 'text/plain'});
-  res.write('hello users');
-  res.end();
+  fs.readdir(__dirname + '/../data/', (err, files) => {
+    res.writeHead(200, {'content-type': 'text/plain'});
+    res.write(JSON.stringify(files.slice(1)));
+    res.end();
+  });
 });
 
 
@@ -21,13 +23,22 @@ studentsRouter.post('/users', (req, res) => {
   });
 
   return req.on('end', () => {
-    logger(jsonObject);
-    jsonObject = JSON.parse(jsonObject);
-    res.writeHead(200, {'content-type': 'text/plain'});
-    res.write(JSON.stringify('hello ' + jsonObject.name));
-    return res.end();
+    logger(jsonObject, res);
   });
 });
 
+function logger(jsonObject, res) {
+  fs.readdir(__dirname + '/../data/', (err, files) => {
+    let counter = files.length;
+    let dir = __dirname + '/../data/';
+    let newFile = 'userFile-' + counter + '.json';
+    fs.writeFileSync(dir + newFile, jsonObject, 'utf-8');
+
+    res.writeHead(200, {'content-type': 'text/plain'});
+    res.write(newFile);
+    return res.end();
+
+  });
+}
 
 http.createServer(studentsRouter.route()).listen(3000);
