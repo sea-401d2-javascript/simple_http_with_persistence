@@ -30,9 +30,14 @@ describe('/users resource routing tests', () => {
       .end((err, res) => {
         expect(err).to.eql(null);
         expect(res).to.have.status(200);
-        fs.readdir(__dirname + '/../data/', (err, files) => {
-          expect(files.indexOf(res.text)).to.not.equal(-1); // checks that new file exists in directory
-          done();
+        fs.readFile(__dirname + '/../data/' + res.text, 'utf8', function (err, data) {
+          if (err) throw err;
+          var obj = JSON.parse(data);
+          expect(obj).to.eql({'name': 'boogers'});
+          fs.readdir(__dirname + '/../data/', (err, files) => {
+            expect(files.indexOf(res.text)).to.not.equal(-1); // checks that new file exists in directory
+            done();
+          });
         });
       });
   });
