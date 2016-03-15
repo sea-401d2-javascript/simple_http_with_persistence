@@ -16,7 +16,7 @@ describe('Testing the HTTP server', () => {
     .end((err, res) => {
       expect(res).to.have.status(200);
       expect(err).eql(null);
-      expect(res.text).to.eql('venue_1.json');
+      expect(res.text).to.eql('1.json');
       done();
     });
   });
