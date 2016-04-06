@@ -1,0 +1,21 @@
+{
+  "name": "basicpersistenceserver",
+  "version": "1.0.0",
+  "description": "Basic HTTP server with simple persistence",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "kevin smith",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "eslint": "^2.3.0",
+    "gulp": "^3.9.1"
+  }
+}
